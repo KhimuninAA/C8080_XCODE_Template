@@ -1,0 +1,62 @@
+{
+  "installer" : {
+    "components" : [
+      {
+        "extraFiles" : [
+
+        ],
+        "files" : [
+          {
+            "destination" : "\/\/Library\/Developer\/Xcode\/Templates\/c8080\/",
+            "source" : {
+              "relativeFilePath" : "8080\/C for i8080.xctemplate"
+            },
+            "uid" : "ayrcxakmks"
+          },
+          {
+            "destination" : "\/\/i8080\/",
+            "source" : {
+              "relativeFilePath" : "8080\/c8080"
+            },
+            "uid" : "afmauakzbl"
+          }
+        ],
+        "name" : "Package",
+        "requireAdminPassword" : false,
+        "requireAfterInstall" : "none",
+        "requireAppsNotRunning" : [
+
+        ],
+        "selectedByDefault" : true,
+        "uid" : "bekbftlxoe"
+      }
+    ],
+    "conclusionContent" : {
+
+    },
+    "gatekeeperScheme" : "none",
+    "licenseContent" : {
+
+    },
+    "name" : "с8080",
+    "options" : {
+      "allowedDestinations" : "userFolder",
+      "architectures" : "all",
+      "installChoiceCustomization" : "always"
+    },
+    "readmeContent" : {
+
+    },
+    "suggestedFilePath" : "\/Users\/khimuninaa\/Documents\/с8080.pkg",
+    "uid" : "ggzwgrmsmo",
+    "welcomeContent" : {
+
+    },
+    "windowOptions" : {
+      "backgroundImageDimmed" : true,
+      "backgroundImagePosition" : "left",
+      "backgroundImageScaling" : "proportional"
+    }
+  },
+  "version" : 1
+}

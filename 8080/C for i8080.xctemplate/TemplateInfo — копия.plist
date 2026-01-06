@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Definitions</key>
+	<dict>
+		<key>main.c</key>
+		<dict>
+			<key>Path</key>
+			<string>main.c</string>
+		</dict>
+	</dict>
+	<key>Nodes</key>
+	<array>
+		<string>main.c</string>
+	</array>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>Identifier</key>
+	<string>com.apple.dt.unit.c8080</string>
+	<key>Ancestors</key>
+	<array>
+		<string>com.apple.dt.unit.base</string>
+	</array>
+	<key>Concrete</key>
+	<true/>
+	<key>Description</key>
+	<string>C for i8080</string>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>buildToolPath</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Build Tool:</string>
+			<key>Description</key>
+			<string>The path to the build tool to use</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Default</key>
+			<string>/Users/akhimunin/i8080/c8080/c8080</string>
+		</dict>
+	</array>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>Nodes</key>
+			<array>
+				<string>main.c</string>
+			</array>
+			<key>TargetType</key>
+			<string>Legacy</string>
+			<key>TargetIdentifier</key>
+			<string>com.apple.dt.cocoaLegacyTarget</string>
+			<key>BuildToolPath</key>
+			<string>/Users/akhimunin/i8080/c8080/c8080</string>
+			<key>BuildToolArgsString</key>
+			<string>main.c</string>
+			<key>SharedSettings</key>
+			<dict>
+				<key>OTHER_CFLAGS</key>
+				<string></string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+			</dict>
+			<key>Configurations</key>
+			<dict>
+				<key>Debug</key>
+				<dict>
+					<key>DEBUGGING_SYMBOLS</key>
+					<string>YES</string>
+					<key>GCC_GENERATE_DEBUGGING_SYMBOLS</key>
+					<string>YES</string>
+					<key>GCC_OPTIMIZATION_LEVEL</key>
+					<string>0</string>
+					<key>DEBUG_INFORMATION_FORMAT</key>
+					<string>dwarf</string>
+				</dict>
+				<key>Release</key>
+				<dict>
+					<key>DEBUG_INFORMATION_FORMAT</key>
+					<string>dwarf-with-dsym</string>
+				</dict>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
