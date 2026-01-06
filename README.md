@@ -1,6 +1,9 @@
-<img align="right" width=96 src="img/icon.png" />
+<img align="right" width=64 src="img/icon.png" />
 
 # Плагин для XCODE
+
+> **Note**
+> Большая благодарность Алексею Морозову за компилятор с8080 (https://github.com/alemorf/c8080). Без него проект бы не состоялся!
 
 Плагин позволяет компилировать код для процессора 580ВМ80 (i8080) на языке C или C-- (CMM)
 
