@@ -16,11 +16,17 @@
  */
 
 #include <stdio.h>
-#include <cpmbios.h>
+#include <cpm.h>
 
-int __global putchar(int c) {
-    if (c == 0x0A)
+int putchar(int c) {
+#ifdef __C8080_USE_CPM_CONSOLE_IO /* Cannot use CpmBiosConSt() because symbols get stuck in CP/M */
+    if ((uint8_t)c == 0x0A)
+        CpmConsoleWrite(0x0D);
+    CpmConsoleWrite(c);
+#else
+    if ((uint8_t)c == 0x0A)
         CpmBiosConOut(0x0D);
     CpmBiosConOut(c);
+#endif
     return (uint8_t)c;
 }

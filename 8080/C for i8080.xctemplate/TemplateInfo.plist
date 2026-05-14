@@ -62,7 +62,7 @@
 					<array>
 						<dict>
 							<key>BuildToolArgsString</key>
-							<string>-m ___PACKAGENAME___/main.c</string>
+							<string>-m -I$HOME/i8080/c8080/include -I___PACKAGENAME___ ___PACKAGENAME___/main.c</string>
 						</dict>
 					</array>
 					<key>Nodes</key>
@@ -96,6 +96,8 @@
 				<string></string>
 				<key>OTHER_LDFLAGS</key>
 				<string></string>
+				<key>LastUpgradeCheck</key>
+				<string>1200</string>
 			</dict>
 			<key>Configurations</key>
 			<dict>

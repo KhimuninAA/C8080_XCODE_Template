@@ -26,3 +26,4 @@ static const uint8_t KEY_UP = 0x19;
 static const uint8_t KEY_DOWN = 0x1A;
 static const uint8_t KEY_SPACE = 0x20;
 static const uint8_t KEY_BACKSPACE = 0x7F;
+static const uint8_t KEY_ESC = 0x0C;

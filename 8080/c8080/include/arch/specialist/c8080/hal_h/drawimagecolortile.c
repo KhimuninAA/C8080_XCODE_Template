@@ -15,28 +15,37 @@
 
 #include <c8080/hal.h>
 
-void __global DrawImageTileMono(void *tile, const void *image, uint16_t widthHeight) {
+void __global DrawImageColorTile(void *, uint8_t, const void *) {
     asm {
-__a_3_drawimagetilemono=0
-        ld   bc, hl
-__a_1_drawimagetilemono=$+1
+__a_3_drawimagecolortile=0
+        ld   b, (hl)
+        inc  hl
+        ld   c, (hl)
+        inc  hl
+__a_1_drawimagecolortile=$+1
         ld   de, 0
-__a_2_drawimagetilemono=$+1
-        ld   hl, 0
-DrawImageTileMono_1:
+drawimagecolortile_1:
         push de
         push bc
-DrawImageTileMono_2:
+drawimagecolortile_2:
+        ld   a, (hl)
+        cp   0x50 ; red
+        jp   nz, drawimagecolortile_3
+__a_2_drawimagecolortile=$+1
+        ld   a, 0
+drawimagecolortile_3:
+        inc  hl
+        ld   (0F802h), a
         ld   a, (hl)
         inc  hl
         ld   (de), a
         inc  de
         dec  b
-        jp   nz, DrawImageTileMono_2
+        jp   nz, drawimagecolortile_2
         pop  bc
         pop  de
         inc  d
         dec  c
-        jp   nz, DrawImageTileMono_1
+        jp   nz, drawimagecolortile_1
     }
 }

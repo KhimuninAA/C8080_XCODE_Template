@@ -15,12 +15,8 @@
  * limitations under the License.
  */
 
-#include <cpmbios.h>
+#include <c8080/console.h>
 
-char CpmBiosConIn(void) {
-    asm {
-        ld hl, (1)
-        ld l, 7
-        jp hl
-    }
+void ClearConsole(void) {
+    WriteConsole("\x1B[H\x1B[2J");
 }

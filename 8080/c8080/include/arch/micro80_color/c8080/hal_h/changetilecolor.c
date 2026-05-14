@@ -13,10 +13,31 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+#include <c8080/hal.h>
 
-#include <stdint.h>
-
-uint8_t CpmBiosConSt(void) __link("cpmbios_h/cpmbiosconst.c");
-char CpmBiosConIn(void) __link("cpmbios_h/cpmbiosconin.c");
-void __global CpmBiosConOut(char c) __link("cpmbios_h/cpmbiosconout.c");
+void __global ChangeTileColor(void *tile, uint8_t color, uint8_t width, uint8_t height) {
+    asm {
+__a_4_changetilecolor=0
+        ld   c, a ; height
+__a_1_changetilecolor=$+1
+        ld   hl, 0 ; tile
+        ld   a, h
+        sub  8
+        ld   h, a
+__a_2_changetilecolor=$+1
+        ld   a, 0 ; color
+changetilecolor_1:
+__a_3_changetilecolor=$+1
+        ld   b, 0 ; width
+        ld   de, hl
+changetilecolor_2:
+        ld   (de), a
+        inc  de
+        dec  b
+        jp   nz, changetilecolor_2
+        ld   de, 64
+        add  hl, de
+        dec  c
+        jp   nz, changetilecolor_1
+    }
+}

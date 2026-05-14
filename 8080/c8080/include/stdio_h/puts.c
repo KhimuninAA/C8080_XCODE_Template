@@ -18,7 +18,10 @@
 
 int puts(const char *text) {
     const uint8_t *i = (const uint8_t *)text;
-    while (*i)
-        putchar(*i++);
+    while (*i) {
+        putchar(*i);
+        i++;
+    }
+    putchar('\n');
     return i - text;
 }

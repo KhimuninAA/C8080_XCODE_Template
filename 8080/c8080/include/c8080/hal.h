@@ -32,15 +32,33 @@ void __global DrawText(void *tile, uint8_t x, uint8_t color, const char *text) _
 /* Draw text at the screen. */
 void __global DrawTextXY(uint8_t x, uint8_t y, uint8_t color, const char *text) __link("c8080/hal_h/drawtextxy.c");
 
+/* Replace colors in screen rect
+ * The rect size and position are multiples of the tile size.
+ * The "tile" value must be calculated using the TILE macro. */
+void __global ChangeTileColor(void *tile, uint8_t color, uint8_t width, uint8_t height)
+    __link("c8080/hal_h/changetilecolor.c");
+
 /* Quick draw an image on the screen.
  * The image size and position are multiples of the tile size.
  * The "tile" value must be calculated using the TILE macro. */
-void __global DrawImageTile(void *tile, const void *image, uint16_t width_height) __link("c8080/hal_h/drawimagetile.c");
+void __global DrawImageTile(void *tile, const void *image) __link("c8080/hal_h/drawimagetile.c");
 
 /* Quick draw an image on the screen.
  * The image size and position are multiples of the tile size. */
-void DrawImageTileXY(uint8_t x, uint8_t y, const void *image, uint16_t width_height)
-    __link("c8080/hal_h/drawimagetilexy.c");
+void DrawImageTileXY(uint8_t x, uint8_t y, const void *image) __link("c8080/hal_h/drawimagetilexy.c");
+
+/* Quick draw an image on the screen.
+ * The image size and position are multiples of the tile size.
+ * One of the image colors is changed to the color from args.
+ * The "tile" value must be calculated using the TILE macro. */
+void __global DrawImageColorTile(void *tile, uint8_t color, const void *image)
+    __link("c8080/hal_h/drawimagecolortile.c");
+
+/* Quick draw an image on the screen.
+ * One of the image colors is changed to the color from args.
+ * The image size and position are multiples of the tile size. */
+void DrawImageColorTileXY(uint8_t x, uint8_t y, uint8_t color, const void *image)
+    __link("c8080/hal_h/drawimagecolortilexy.c");
 
 /* Beautifully draw the compressed full-screen image.
  * The "tempBuffer" value is a buffer of DRAW_SCREEN_TEMP_BUFFER_SIZE bytes */
@@ -86,3 +104,12 @@ uint8_t ReadKey(void);
  * The function returns 0xFF if a service key was processed
  * (for example, switching the layout) */
 uint8_t DecodeReadKey(uint8_t n);
+
+/* Save screen, current color, cursor position, cursor visibility */
+/* FEATURE_HAL_SAVE_SCREEN if supported */
+struct SavedScreen;
+void SaveScreen(struct SavedScreen *s) __link("c8080/hal_h/savescreen.c");
+
+/* Restore screen, current color, cursor position, cursor visibility */
+/* FEATURE_HAL_SAVE_SCREEN if supported */
+void RestoreScreen(struct SavedScreen *s) __link("c8080/hal_h/restorescreen.c");

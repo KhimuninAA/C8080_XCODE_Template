@@ -15,14 +15,10 @@
  * limitations under the License.
  */
 
-#include <cpmbios.h>
+#include <c8080/console.h>
 
-void __global CpmBiosConOut(char c) {
-    asm {
-__1_a_cpmbiosconout=0
-        ld c, a
-        ld hl, (1)
-        ld l, 0Ch
-        jp hl
-    }
+uint16_t _GetCursorPosition(void) __address(0xF81E);
+
+uint16_t GetCursorPosition(void) {
+    return _GetCursorPosition() - 0x308;
 }
